@@ -152,7 +152,7 @@ class Eveng:
 
     @classmethod
     def createSession(cls, config, configdir=None):
-        if configdir is None: raise Exception("status:False\nmessage:Config directory path cannot be None")
+        if configdir is None and type(config) is not dict: raise Exception("status:False\nmessage:Config directory path cannot be None")
         if type(config) is not dict:
             config = cls.get_config(ConfigDir=configdir, ConfigFile=config)
         if config is None: 
