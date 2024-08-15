@@ -157,7 +157,6 @@ class Eveng:
             config = cls.get_config(ConfigDir=configdir, ConfigFile=config)
         if config is None: 
             raise Exception("Failed to load the configuration")
-        print(config)
         evengresource = Eve(serveripaddr=config['server_ip'], configdata= config)
         session= requests.Session()
         session.headers.update({'Connection': 'keep-Alive'})
