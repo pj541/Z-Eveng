@@ -11,15 +11,18 @@ import copy
 __author__ = {"Prajwal Jha" : "pkumarjha@zscaler.com"}
 
 class Eveng:
-    def __init__(self, config, configdir=None, logger = None):
+    def __init__(self, config, configdir=None, logger = None, session:requests.Session=None):
         """
         config: used to pass config filename/data.
         configdir: used to pass custom configdir if lookup needs to be done in a custom directory.
         """
         self.logger = logger if logger != None else self.Initialize_Logger("eveng.log", Log_Level="INFO")
-        self.__session = requests.Session()
-        self.__session.verify = False
-        self.__session.headers.update({'Connection': 'keep-Alive'})
+        if isinstance(session, requests.Session):
+            self.__session = session
+        else:
+            self.__session = requests.Session()
+            self.__session.verify = False
+            self.__session.headers.update({'Connection': 'keep-Alive'})
         self.config=None
         if type(config) is dict:
             self.config = config 
