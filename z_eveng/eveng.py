@@ -163,7 +163,7 @@ class Eveng:
         session.verify=False
         response = session.post(url=evengresource.loginurl, headers=evengresource.loginheader, json=evengresource.loginpayload)
         if str(response.status_code) !=str(200):
-            return [False, f"Unable to login specified user {config['creds']['username']} into eveng server {config['server_ip']}"]
+            return [False, f"Unable to login specified user {config['creds']['username']} into eveng server {config['server_ip']}", None]
         return [True, "User '{}' logged into the eveng-server".format(config['creds']['username']), session]
     def __login(self):
         response = self.__session.post(url=self.resource.loginurl, headers=self.resource.loginheader, json =self.resource.loginpayload)

@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="z-eveng",
-    version="0.0.1.5",
+    version="0.0.1.6",
     author="Prajwal",
     author_email="pkumarjha@zscaler.com",
     long_description_content_type="text/markdown",
